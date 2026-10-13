@@ -10,7 +10,7 @@ from pypdf.generic import DictionaryObject, NameObject
 from reportlab.lib.pagesizes import LETTER
 from reportlab.pdfgen import canvas
 
-from sky_map import CONFIG_PATH, compute_data, draw_map_page, event_datetime, load_json
+from sky_map import CONFIG_PATH, compute_data, draw_map_page, event_datetime, load_json, map_title
 from eyepiece import build as build_back
 
 
@@ -29,7 +29,7 @@ def build(config_path=CONFIG_PATH, output=OUTPUT, data=None, selected=None, refr
     back_path = TEMP_DIR / "back.pdf"
 
     front = canvas.Canvas(str(front_path), pagesize=LETTER)
-    front.setTitle(f"{config['event_title']} - Tonight's Sky")
+    front.setTitle(f"{config['event_title']} - {map_title(config)}")
     front.setAuthor(config["organization"]["name"])
     draw_map_page(front, config, data, production=True)
     front.save()
@@ -40,8 +40,9 @@ def build(config_path=CONFIG_PATH, output=OUTPUT, data=None, selected=None, refr
     writer.add_page(PdfReader(front_path).pages[0])
     writer.add_page(PdfReader(back_path).pages[0])
     dt = event_datetime(config)
+    period = dt.strftime('%B %Y') if config.get('handout_mode') == 'monthly' else f"{dt.strftime('%B')} {dt.day}, {dt.year}"
     writer.add_metadata({
-        "/Title": f"{config['event_title']} Handout - {dt.strftime('%B')} {dt.day}, {dt.year}",
+        "/Title": f"{config['event_title']} Handout - {period}",
         "/Author": config["organization"]["name"],
         "/Subject": f"Two-sided public observing handout for {config['location']['name']}",
         "/Keywords": "astronomy, star party, sky map, telescope",

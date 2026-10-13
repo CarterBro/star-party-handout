@@ -147,16 +147,33 @@ def resolve_config(raw, args, now=None):
     for target in manual:
         if target not in config["target_candidates"] or target not in SKETCH_BUILDERS:
             raise ValueError(f"Manual target {target} must be a supported target included in target_candidates.")
+    requested_month = getattr(args, "month", None)
+    if requested_month and args.date:
+        raise ValueError("Choose --month YYYY-MM or --date YYYY-MM-DD, not both.")
     if args.date:
         config["date"] = args.date
-    elif not raw.get("date"):
+        config["handout_mode"] = "nightly"
+    elif requested_month or raw.get("month") or raw.get("handout_mode") == "monthly" or not raw.get("date"):
         clock = now or datetime.now(ZoneInfo(config["timezone"]))
-        config["date"] = clock.astimezone(ZoneInfo(config["timezone"])).date().isoformat()
-        defaults_applied.append(f"date:{config['date']}")
+        month = requested_month or raw.get("month") or clock.astimezone(ZoneInfo(config["timezone"])).strftime("%Y-%m")
+        if not isinstance(month, str) or not re.fullmatch(r"\d{4}-(?:0[1-9]|1[0-2])", month):
+            raise ValueError("Month must be YYYY-MM, for example 2026-11.")
+        try:
+            datetime.strptime(month + "-15", "%Y-%m-%d")
+        except ValueError as exc:
+            raise ValueError("Month must contain a valid year from 0001 to 9999.") from exc
+        config.update(date=month + "-15", month=month, handout_mode="monthly")
+        defaults_applied.append(f"chart date:{config['date']}")
+    else:
+        config["handout_mode"] = "nightly"
+    if config["handout_mode"] == "nightly":
+        config.pop("month", None)
     if args.time:
         config["time"] = args.time
     elif not raw.get("time"):
-        defaults_applied.append("time:21:00")
+        month_number = int(config["date"][5:7]) if isinstance(config.get("date"), str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", config["date"]) else 10
+        config["time"] = "20:00" if month_number in (11, 12, 1, 2) else "21:00"
+        defaults_applied.append(f"time:{config['time']}")
     if not isinstance(config["date"], str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", config["date"]):
         raise ValueError("Date must be YYYY-MM-DD, for example 2026-10-17.")
     if not re.fullmatch(r"(?:[01]\d|2[0-3]):[0-5]\d", config["time"]):
@@ -179,6 +196,9 @@ def resolve_config(raw, args, now=None):
     if args.targets:
         explicit = [item.strip().upper() for item in args.targets.split(",") if item.strip()]
         config["target_candidates"] = list(dict.fromkeys(config["target_candidates"] + explicit))
+    if config["handout_mode"] == "monthly":
+        seasonal = json.loads((ROOT / "data" / "seasonal-targets.json").read_text())[str(int(config["month"][5:7]))]
+        config["target_candidates"] = list(dict.fromkeys(config["target_candidates"] + seasonal))
 
     try:
         ZoneInfo(config["timezone"])
@@ -205,7 +225,10 @@ def resolve_config(raw, args, now=None):
 def display_event(config, defaults_applied):
     dt = event_datetime(config)
     print("\nEvent details")
-    print(f"  Date:     {dt.strftime('%A, %B')} {dt.day}, {dt.year}")
+    if config.get("handout_mode") == "monthly":
+        print(f"  Month:    {dt.strftime('%B %Y')} (chart calculated for the 15th)")
+    else:
+        print(f"  Date:     {dt.strftime('%A, %B')} {dt.day}, {dt.year}")
     print(f"  Time:     {dt.strftime('%I:%M %p').lstrip('0')} {dt.tzname()}")
     print(f"  Location: {config['location']['name']} ({config['location']['latitude']:.4f}, {config['location']['longitude']:.4f})")
     if defaults_applied:
@@ -219,7 +242,7 @@ def confirm(prompt, input_fn=input):
 
 def cache_fingerprint(config):
     source_hashes = {}
-    paths = [ROOT / "scripts" / "astronomy_data.py", TARGETS_PATH, ROOT / "requirements.txt"]
+    paths = [ROOT / "scripts" / "astronomy_data.py", TARGETS_PATH, ROOT / "data" / "seasonal-targets.json", ROOT / "requirements.txt"]
     paths.extend(sorted((ROOT / "data" / "catalogs").glob("*.json")))
     for path in paths:
         source_hashes[str(path.relative_to(ROOT))] = hashlib.sha256(path.read_bytes()).hexdigest()
@@ -264,7 +287,10 @@ def choose_targets(config, data, args, input_fn=input):
         return validate_selected(args.targets.split(","), data), "command-line"
     manual = config.get("target_selection", {}).get("manual_overrides", [])
     if len(manual) == 4:
-        return validate_selected(manual, data), "configuration"
+        chosen = validate_selected(manual, data)
+        if args.non_interactive or config.get("handout_mode") != "monthly":
+            return chosen, "configuration"
+        data["selected_targets"] = chosen
     if args.non_interactive:
         if not args.accept_suggested_targets:
             raise ValueError("Non-interactive builds require --targets or --accept-suggested-targets")
@@ -353,7 +379,8 @@ def verify_pdf(pdf_path, config):
     if len(reader.pages) != 2:
         raise ValueError("Production PDF must contain exactly two pages")
     text = [" ".join((page.extract_text() or "").split()) for page in reader.pages]
-    if "Tonight's Sky" not in text[0] or "What You May See" not in text[1]:
+    expected_title = "Night Sky" if config.get("handout_mode") == "monthly" else "Tonight's Sky"
+    if expected_title not in text[0] or "What You May See" not in text[1]:
         raise ValueError("PDF page order is incorrect")
     if contains_draft_labels(" ".join(text)):
         raise ValueError("Production PDF contains a draft heading")
@@ -403,11 +430,13 @@ def render_qa(pdf_path, cache_key, refresh=False):
 
 
 def build_parser():
-    parser = argparse.ArgumentParser(description="Generate a two-page US Letter star-party handout. Defaults: Austin, today in Central Time, 21:00. Interactive runs confirm the event and four targets.", formatter_class=argparse.RawDescriptionHelpFormatter, epilog="Examples:\n  python scripts/handout.py --date 2026-10-17\n  python scripts/handout.py --config config/event-template.json --check-config\n  python scripts/handout.py --date 2026-09-19 --targets M13,M11,M27,M31 --non-interactive --offline\n\nSetup: see README.md. Diagnostics: python scripts/doctor.py.\nExit codes: 0 success (possibly with warnings), 2 invalid input/build failure, 130 cancelled.")
+    parser = argparse.ArgumentParser(description="Generate a monthly two-page US Letter handout. Defaults: Austin, current month (chart for the 15th), 20:00 November-February or 21:00 March-October. --date restores a night-specific handout.", formatter_class=argparse.RawDescriptionHelpFormatter, epilog="Examples:\n  python scripts/handout.py --month 2026-11\n  python scripts/handout.py --date 2026-10-17\n  python scripts/handout.py --config config/event-template.json --check-config\n\nSetup: see README.md. Diagnostics: python scripts/doctor.py.\nExit codes: 0 success (possibly with warnings), 2 invalid input/build failure, 130 cancelled.")
     parser.add_argument("--list-targets", action="store_true", help="List implemented targets and exit without building")
     parser.add_argument("--check-config", action="store_true", help="Validate inputs and show resolved defaults without building or contacting JPL")
     parser.add_argument("--config", help="Event JSON; omitted fields use documented defaults")
-    parser.add_argument("--date", help="Override event date (YYYY-MM-DD)")
+    date_group = parser.add_mutually_exclusive_group()
+    date_group.add_argument("--month", help="Monthly handout for YYYY-MM; defaults to current local month")
+    date_group.add_argument("--date", help="Night-specific handout for YYYY-MM-DD")
     parser.add_argument("--time", help="Override local event time (HH:MM)")
     parser.add_argument("--targets", help="Four comma-separated target IDs")
     parser.add_argument("--magnitude-limit", type=float, help="Faintest chart stars (-2 to 6; default 5; smaller means fewer stars)")
@@ -449,7 +478,8 @@ def main(argv=None, input_fn=input):
     if not args.non_interactive and not confirm("Continue with these event details? [Y/n]: ", input_fn):
         raise RuntimeError("Event details not confirmed")
 
-    base_name = f"{slugify(config['event_title'])}-{config['date']}"
+    period = config["month"] if config.get("handout_mode") == "monthly" else config["date"]
+    base_name = f"{slugify(config['event_title'])}-{period}"
     output_root = Path(args.output_dir).resolve()
     data_dir = output_root / "data"
     pdf_dir = output_root / "pdf"

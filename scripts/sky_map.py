@@ -68,7 +68,12 @@ def clock(iso, timezone):
 def event_line(config):
     dt = event_datetime(config)
     hour = dt.strftime("%I:%M %p").lstrip("0").lower().replace("am", "a.m.").replace("pm", "p.m.")
-    return f"{config['location']['name']} | {dt.strftime('%A, %B')} {dt.day}, {dt.year} | {hour} {dt.tzname()}"
+    period = dt.strftime('%B %Y') if config.get('handout_mode') == 'monthly' else f"{dt.strftime('%A, %B')} {dt.day}, {dt.year}"
+    return f"{config['location']['name']} | {period} | {hour} {dt.tzname()}"
+
+
+def map_title(config):
+    return f"{event_datetime(config).strftime('%B')} Night Sky" if config.get('handout_mode') == 'monthly' else "Tonight's Sky"
 
 
 def event_clock(config):
@@ -241,7 +246,10 @@ def draw_map(c, config, data, x, y, size):
         dx = 9 if px < cx else -9 - stringWidth(target["id"], "Helvetica-Bold", 6.8)
         label(c, target["id"], px + dx, py + 4, 6.8, INK, "Helvetica-Bold")
 
-    for name in ("Moon", "Mercury", "Venus", "Mars", "Jupiter", "Saturn"):
+    body_names = ("Mercury", "Venus", "Mars", "Jupiter", "Saturn")
+    if config.get("handout_mode") != "monthly":
+        body_names = ("Moon",) + body_names
+    for name in body_names:
         body = data["bodies"][name]
         if body["altitude"] < 0:
             continue
@@ -266,12 +274,12 @@ def draw_map_page(c, config, data, production=False):
         org = config["organization"]
         label(c, f"PRESENTED BY {org['name'].upper()} | {org['website'].replace('https://', '')}", 36, H - 27, 7.2, ACCENT, "Helvetica-Bold")
         c.linkURL(org["website"], (36, H - 33, W - 36, H - 18), relative=0, thickness=0)
-        label(c, "Tonight's Sky", 36, H - 59, 21, INK, "Helvetica-Bold")
+        label(c, map_title(config), 36, H - 59, 21, INK, "Helvetica-Bold")
         label(c, event_line(config), 36, H - 75, 8.5, MID)
         c.setStrokeGray(LIGHT)
         c.line(36, H - 84, W - 36, H - 84)
     else:
-        draw_header(c, config, "Astronomy map proof", "Tonight's Sky", event_line(config))
+        draw_header(c, config, "Astronomy map proof", map_title(config), event_line(config))
     draw_map(c, config, data, 78, 226, 456)
 
     panel_y, panel_h, gap = 52, 146, 8
@@ -281,16 +289,26 @@ def draw_map_page(c, config, data, production=False):
         rounded_panel(c, x, panel_y, widths[index], panel_h, PALE if index != 1 else white)
 
     tz = config["timezone"]
-    label(c, "TONIGHT AT A GLANCE", xs[0] + 12, panel_y + 127, 7, ACCENT, "Helvetica-Bold")
-    label(c, f"Sunset  {clock(data['twilight']['sunset_utc'], tz)}", xs[0] + 12, panel_y + 105, 8.2, INK, "Helvetica-Bold")
-    label(c, f"Astronomical dark  {clock(data['twilight']['astronomical_dusk_utc'], tz)}", xs[0] + 12, panel_y + 89, 7.6, INK)
-    moon = data["bodies"]["Moon"]
-    label(c, f"Moon  {moon['phase_fraction'] * 100:.0f}% lit; sets {clock(data['twilight']['moonset_utc'], tz)}", xs[0] + 12, panel_y + 69, 7.6, INK)
-    visible = [name for name in ("Mercury", "Venus", "Mars", "Jupiter", "Saturn") if data["bodies"][name]["altitude"] >= 0]
     display_time = event_clock(config)
-    label(c, f"Visible planets at {display_time}", xs[0] + 12, panel_y + 46, 7, MID, "Helvetica-Bold")
-    planet_text = ", ".join(f"{name} ({data['bodies'][name]['altitude']:.0f} deg)" for name in visible) or "None above the horizon"
-    wrap_text(c, planet_text, xs[0] + 12, panel_y + 31, widths[0] - 24, size=7.4, leading=10, max_lines=2)
+    if config.get("handout_mode") == "monthly":
+        label(c, "MONTH AT A GLANCE", xs[0] + 12, panel_y + 127, 7, ACCENT, "Helvetica-Bold")
+        phases = data["moon_phases"]
+        # A calendar month can contain five principal phase events.
+        for index, phase in enumerate(phases):
+            y = panel_y + 103 - index * 21
+            label(c, phase["name"], xs[0] + 12, y, 8, INK)
+            phase_date = datetime.fromisoformat(phase["local_date"])
+            right(c, f"{phase_date.strftime('%b')} {phase_date.day}", xs[0] + widths[0] - 15, y, 8, INK, "Helvetica-Bold")
+    else:
+        label(c, "TONIGHT AT A GLANCE", xs[0] + 12, panel_y + 127, 7, ACCENT, "Helvetica-Bold")
+        label(c, f"Sunset  {clock(data['twilight']['sunset_utc'], tz)}", xs[0] + 12, panel_y + 105, 8.2, INK, "Helvetica-Bold")
+        label(c, f"Astronomical dark  {clock(data['twilight']['astronomical_dusk_utc'], tz)}", xs[0] + 12, panel_y + 89, 7.6, INK)
+        moon = data["bodies"]["Moon"]
+        label(c, f"Moon  {moon['phase_fraction'] * 100:.0f}% lit; sets {clock(data['twilight']['moonset_utc'], tz)}", xs[0] + 12, panel_y + 69, 7.6, INK)
+        visible = [name for name in ("Mercury", "Venus", "Mars", "Jupiter", "Saturn") if data["bodies"][name]["altitude"] >= 0]
+        label(c, f"Visible planets at {display_time}", xs[0] + 12, panel_y + 46, 7, MID, "Helvetica-Bold")
+        planet_text = ", ".join(f"{name} ({data['bodies'][name]['altitude']:.0f} deg)" for name in visible) or "None above the horizon"
+        wrap_text(c, planet_text, xs[0] + 12, panel_y + 31, widths[0] - 24, size=7.4, leading=10, max_lines=2)
 
     label(c, "HOW TO USE THE MAP", xs[1] + 12, panel_y + 127, 7, ACCENT, "Helvetica-Bold")
     wrap_text(c, "Hold the page overhead. Rotate it until the direction you face is at the bottom. East is left when north is at the top.", xs[1] + 12, panel_y + 105, widths[1] - 24, size=7.8, leading=10.5)

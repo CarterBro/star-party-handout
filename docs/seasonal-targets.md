@@ -1,6 +1,6 @@
 # Approved seasonal planning table
 
-Assumes roughly mid-month at 9 p.m. near Austin (30 degrees north). Every listed object now has local metadata, catalog coordinates, and a simplified sketch. Paired objects occupy one handout slot. The table is planning guidance rather than an automatic month preset; exact date, Moon, and horizon conditions require operator review. CLI IDs have no spaces: NGC2392, NGC3242, NGC7662, NGC869/884, M81/M82, and M65/M66.
+Monthly handouts automatically propose these four objects near Austin (30 degrees north). Charts use the 15th at 8 p.m. November-February or 9 p.m. March-October. All objects have local metadata, coordinates, and a simplified sketch. Pairs occupy one slot. Confirm or edit the suggestions for your conditions. CLI IDs have no spaces: NGC2392, NGC3242, NGC7662, NGC869/884, M81/M82, and M65/M66. Edit data/seasonal-targets.json to change the built-in sets.
 
 | Month | Target 1 | Target 2 | Target 3 | Target 4 |
 |---|---|---|---|---|

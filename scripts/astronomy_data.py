@@ -6,6 +6,7 @@ import math
 from datetime import datetime, timezone
 from importlib.metadata import version
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import astronomy as A
 
@@ -26,6 +27,30 @@ def iso(time):
 def round_tenth(value):
     # Preserve the previous engine's positive-score Math.round convention.
     return math.floor(value * 10 + 0.5) / 10
+
+
+def monthly_moon_phases(month, timezone_name):
+    """All principal phase events inside the requested month in local time."""
+    year, number = map(int, month.split('-'))
+    tz = ZoneInfo(timezone_name)
+    start = datetime(year, number, 1, tzinfo=tz)
+    end = datetime(year + (number == 12), 1 if number == 12 else number + 1, 1, tzinfo=tz)
+    first = A.Time.Parse(start.astimezone(timezone.utc).isoformat().replace('+00:00', 'Z'))
+    events = []
+    for angle, name in ((0, 'New Moon'), (90, 'First Quarter'), (180, 'Full Moon'), (270, 'Last Quarter')):
+        search = first
+        while True:
+            event = A.SearchMoonPhase(angle, search, 35)
+            if event is None:
+                break
+            local = event.Utc().replace(tzinfo=timezone.utc).astimezone(tz)
+            if local >= end:
+                break
+            if local >= start:
+                events.append({'name': name, 'angle_degrees': angle, 'utc': iso(event),
+                               'local_date': local.date().isoformat(), 'day': local.day})
+            search = event.AddDays(1)
+    return sorted(events, key=lambda e: e['utc'])
 
 
 def compute_astronomy(config, utc_iso):
@@ -143,10 +168,14 @@ def compute_astronomy(config, utc_iso):
         target['rank'] = rank
     by_id = {t['id']: t for t in targets}
     selected = []
+    monthly = config.get('handout_mode') == 'monthly'
+    if monthly and not selection.get('manual_overrides'):
+        seasonal = json.loads((ROOT / 'data' / 'seasonal-targets.json').read_text())
+        selected = [target for target in seasonal[str(int(config['month'][5:7]))] if target in by_id]
     for target_id in selection.get('manual_overrides', []):
         if target_id in by_id and target_id not in selected:
             selected.append(target_id)
-    for group in selection.get('preferred_groups', []):
+    for group in ([] if monthly and len(selected) == 4 else selection.get('preferred_groups', [])):
         if any(by_id[t]['selection_group'] == group for t in selected):
             continue
         match = next((t for t in targets if t['selection_group'] == group and t['id'] not in selected), None)
@@ -158,7 +187,7 @@ def compute_astronomy(config, utc_iso):
             break
         if target['id'] not in selected:
             selected.append(target['id'])
-    return {
+    result = {
         'schema_version': 1, 'generated_utc': datetime.now(timezone.utc).isoformat(), 'event_utc': iso(date),
         'event': {'title': config['event_title'], 'date': config['date'], 'time': config['time'],
                   'timezone': config['timezone'], 'location': location},
@@ -171,3 +200,6 @@ def compute_astronomy(config, utc_iso):
         'catalog': {'stars': stars, 'constellation_lines': constellation_lines,
                     'constellation_boundaries': boundaries, 'constellation_labels': labels},
     }
+    if monthly:
+        result['moon_phases'] = monthly_moon_phases(config['month'], config['timezone'])
+    return result

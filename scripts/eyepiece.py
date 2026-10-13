@@ -450,7 +450,7 @@ def build(output_pdf=OUTPUT_PDF, production=False, config_path=CONFIG_PATH, sele
     c.linkURL(telescope_url, (392, 75, 560, 153), relative=0, thickness=0)
 
     if production:
-        footer(c, f"Original simplified eyepiece illustrations | {org['name']} | {org['website'].replace('https://', '')}", "2 / 2")
+        footer(c, f"{org['name']} | {org['website'].replace('https://', '')}", "2 / 2")
     else:
         footer(c, "Original simplified illustrations | paper sketches inverted for eyepiece presentation", "1 / 1")
     c.save()

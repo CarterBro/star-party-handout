@@ -1,8 +1,8 @@
 # Star Party Handout
 
-Help star-party visitors find their way around the sky and understand what they can expect through a telescope. This program creates a printable, two-sided US Letter handout with a sky chart for your date and location and sketches of four observing targets. It also includes first-time observing tips and links to further resources, and works with black-and-white printers.
+Help star-party visitors find their way around the sky and understand what they can expect through a telescope. This program creates a printable, two-sided US Letter handout with a reusable monthly sky chart and sketches of four observing targets. An exact date override creates a night-specific handout instead. It also includes first-time observing tips and links to further resources, and works with black-and-white printers.
 
-The included [monthly target guide](docs/seasonal-targets.md) recommends four objects for each month near Austin. All of those objects have built-in sketches and facts. You can use the recommended set or choose your own four targets. Currently, you select a month's recommended set using `--targets`; the program's automatic suggestions consider the available catalog rather than choosing directly from the monthly guide.
+The included [monthly target guide](docs/seasonal-targets.md) supplies the default four objects for each month near Austin. All have built-in sketches and facts. Confirm the set, edit it interactively, or override it with `--targets`.
 
 ## First-time setup
 
@@ -19,15 +19,23 @@ Activate `.venv` again in each new terminal. On Windows, create the environment 
 
 Optional: install Poppler for grayscale previews (`brew install poppler` on macOS; `sudo apt install poppler-utils` on Ubuntu/Debian). Without it, handouts still generate but preview images are unavailable. Python handles astronomy calculations, cached NASA/JPL checks, sketches, and PDFs; Node.js, npm, and curl are not required. Setup requires internet to install Python packages; later builds reuse local data.
 
-## Generate tonight's handout
+## Generate a monthly handout
 
 ```sh
 python scripts/handout.py
 ```
 
-Defaults are Austin, Texas, today in `America/Chicago`, and 21:00 (9 p.m.). Confirm the displayed event with Enter. Then approve the four suggested targets with Enter, enter `edit` and four comma-separated supported IDs, or enter `n` to cancel. Review altitude and conditions before approving the suggestions.
+Defaults are Austin, Texas and the current month in `America/Chicago`, with the chart calculated for the 15th. November-February default to 20:00 (8 p.m.); March-October default to 21:00 (9 p.m.). These choices follow the calendar month; timezone rules determine the actual UTC offset. `--time` overrides the default.
 
-For another date and chosen targets:
+Confirm the displayed month, time, and location with Enter. Then approve the four seasonal targets, enter `edit` and four comma-separated IDs, or enter `n` to cancel. The heading shows month/year. The map includes planets but no Moon marker; “Month at a Glance” lists local dates of new moon, first quarter, full moon, and last quarter, including repeated occurrences.
+
+For another month:
+
+```sh
+python scripts/handout.py --month 2026-11
+```
+
+For a night-specific handout with chosen targets:
 
 ```sh
 python scripts/handout.py --date 2026-09-19 --time 21:00 --targets M13,M11,M27,M31
@@ -39,15 +47,15 @@ For an existing saved event:
 python scripts/handout.py --config config/event-2026-09-19-dripping-springs.json
 ```
 
-A saved date remains fixed. Omit date in a reusable config to use today, or override with `--date YYYY-MM-DD`. Time is local 24-hour `HH:MM`; the IANA timezone handles daylight saving time.
+A saved `date` creates a night-specific handout and remains fixed. Omit date in a reusable config to use the current month, or set `month` to a fixed `YYYY-MM`. `--month` overrides a saved date to produce monthly output; `--date` restores dated output, including the Moon marker and sunset/darkness information. Do not supply both command-line options. A saved `time` overrides the seasonal default. Local 24-hour `HH:MM` times use actual timezone rules, including DST transitions.
 
 For an unattended/offline run:
 
 ```sh
-python scripts/handout.py --date 2026-09-19 --targets M13,M11,M27,M31 --non-interactive --offline
+python scripts/handout.py --month 2026-11 --non-interactive --accept-suggested-targets --offline
 ```
 
-Unattended builds require explicit targets, four saved `manual_overrides`, or `--accept-suggested-targets`. Four saved overrides skip the target-choice prompt even in interactive mode. Offline mode forbids JPL requests; missing cached validation is recorded as a warning.
+Unattended builds require explicit targets, four saved `manual_overrides`, or `--accept-suggested-targets`. Interactive monthly runs still confirm saved target choices; dated configurations keep their existing behavior. Offline mode forbids JPL requests; missing cached validation is recorded as a warning.
 
 ## Supported targets
 
@@ -55,17 +63,17 @@ Unattended builds require explicit targets, four saved `manual_overrides`, or `-
 python scripts/handout.py --list-targets
 ```
 
-Start with the [monthly target guide](docs/seasonal-targets.md), then use `--targets` to choose the four objects you want on the handout. For example, the October set is:
+Monthly runs automatically propose the [monthly target guide](docs/seasonal-targets.md). Use `--targets` to override the four objects, for example:
 
 ```sh
-python scripts/handout.py --date 2026-10-17 --targets 'M31,NGC869/884,M15,M27'
+python scripts/handout.py --month 2026-10 --targets 'M31,NGC869/884,M15,M27'
 ```
 
 The catalog contains 21 choices, each with a telescope sketch and a few facts for visitors. `--list-targets` shows their names and the IDs to enter. An ID is an object's catalog designation, such as `M31` for the Andromeda Galaxy. Enter NGC IDs without spaces, for example `NGC2392`.
 
 Some choices show two objects together: `NGC869/884` is the Double Cluster, while `M81/M82` and `M65/M66` are galaxy pairs. Each pair uses one of the handout's four spaces.
 
-If you omit `--targets`, the program suggests four objects and lets you accept or change them. By default it considers the whole catalog. A saved configuration can limit those suggestions using `target_candidates`; this does not prevent you from choosing other supported objects with `--targets`.
+Monthly runs suggest the seasonal four and ensure they are included in the candidate list. Dated runs use the existing altitude-based ranking from `target_candidates`. Either mode lets you choose other supported objects with `--targets`.
 
 Prepare or check the entire offline library and create a contact sheet:
 
@@ -112,7 +120,7 @@ Other useful settings:
 | `sky_map.show_constellation_lines` | Default true; constellation boundaries default false |
 | `resources.beginner_telescope_guide` | Buying-guide link and QR code |
 
-Command-line date, time, magnitude, and targets override their configuration choices. `config/event.schema.json` provides basic editor hints; the runner also checks timezone, artwork, and layout constraints. Paper/layout are fixed to Letter and four sketches; changing `print` fields does not change page geometry. Scoring and precession/refraction settings are developer options; operators can retain defaults.
+Command-line date, month, time, magnitude, and targets override their configuration choices. `config/event.schema.json` provides basic editor hints; the runner also checks timezone, artwork, and layout constraints. Paper/layout are fixed to Letter and four sketches; changing `print` fields does not change page geometry. Scoring and precession/refraction settings are developer options; operators can retain defaults.
 
 ## Change links and QR codes
 
@@ -125,16 +133,16 @@ To change the project-wide defaults, edit `DEFAULTS` in [scripts/handout.py](scr
 The program prints absolute PDF and manifest paths. Default output:
 
 ```text
-output/pdf/<event-title>-<date>.pdf
-output/data/<event-title>-<date>-config.json
-output/data/<event-title>-<date>-astronomy.json
-output/data/<event-title>-<date>-manifest.json
-output/data/<event-title>-<date>-jpl-validation.json (when available)
+output/pdf/<event-title>-<month-or-date>.pdf
+output/data/<event-title>-<month-or-date>-config.json
+output/data/<event-title>-<month-or-date>-astronomy.json
+output/data/<event-title>-<month-or-date>-manifest.json
+output/data/<event-title>-<month-or-date>-jpl-validation.json (when available)
 ```
 
 The manifest records targets, resolved inputs, validation, warnings, and cache results. Its `cache.render.path` identifies the grayscale preview directory relative to the project. The handout uses black, white, and gray only. Review both pages and print at actual size/100%, US Letter, double-sided, flip on long edge. Print one copy first and scan both QR codes.
 
-The same event title and date overwrite the same outputs, even if time/location changes. Use a different event title or `--output-dir output/my-version` to preserve alternatives. Files from a previous build can remain after failure: trust the latest successful completion and manifest, not PDF presence alone.
+Monthly output uses YYYY-MM in filenames; dated output uses YYYY-MM-DD. The same event title and period overwrite the same outputs, even if time/location changes. Use a different event title or `--output-dir output/my-version` to preserve alternatives. Files from a previous build can remain after failure: trust the latest successful completion and manifest, not PDF presence alone.
 
 ## Help and errors
 
@@ -183,6 +191,6 @@ Run operator tests with `python -m unittest discover -s tests`. To extend the li
 
 ## License
 
-Project code and original procedural sketches are available under the [MIT License](LICENSE). Dependencies retain their own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). 
+Project code and original procedural sketches are available under the [MIT License](LICENSE). Dependencies retain their own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 

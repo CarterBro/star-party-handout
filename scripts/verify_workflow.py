@@ -39,8 +39,9 @@ def main():
     )
     assert config["location"] == AUSTIN_LOCATION
     assert config["timezone"] == "America/Chicago"
-    assert config["date"] == "2026-09-12"
-    assert "location:Austin, Texas" in defaults and "date:2026-09-12" in defaults
+    assert config["date"] == "2026-09-15"
+    assert config["handout_mode"] == "monthly"
+    assert "location:Austin, Texas" in defaults and "chart date:2026-09-15" in defaults
     assert not unavailable
 
     manifest = json.loads(MANIFEST_PATH.read_text())
