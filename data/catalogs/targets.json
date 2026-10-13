@@ -1,0 +1,170 @@
+{
+  "M42": {
+    "coordinates": [
+      83.85,
+      -5.45
+    ],
+    "magnitude": 4
+  },
+  "M38": {
+    "coordinates": [
+      82.175,
+      35.8333
+    ],
+    "magnitude": 6.4
+  },
+  "M35": {
+    "coordinates": [
+      92.2249,
+      24.3333
+    ],
+    "magnitude": 5.1
+  },
+  "M44": {
+    "coordinates": [
+      130.025,
+      19.9833
+    ],
+    "magnitude": 3.1
+  },
+  "M67": {
+    "coordinates": [
+      132.6,
+      11.8167
+    ],
+    "magnitude": 6.9
+  },
+  "M3": {
+    "coordinates": [
+      -154.45,
+      28.3833
+    ],
+    "magnitude": 6.4
+  },
+  "M5": {
+    "coordinates": [
+      -130.35,
+      2.0833
+    ],
+    "magnitude": 5.8
+  },
+  "M15": {
+    "coordinates": [
+      -37.5,
+      12.1667
+    ],
+    "magnitude": 6.4
+  },
+  "M104": {
+    "coordinates": [
+      -170,
+      -11.6167
+    ],
+    "magnitude": 8.3
+  },
+  "NGC 2392": {
+    "coordinates": [
+      112.2949,
+      20.911801
+    ],
+    "magnitude": 9.68
+  },
+  "NGC 3242": {
+    "coordinates": [
+      156.1921,
+      -18.6424
+    ],
+    "magnitude": 8.6
+  },
+  "NGC 7662": {
+    "coordinates": [
+      -8.5267,
+      42.535
+    ],
+    "magnitude": 8.3
+  },
+  "NGC 869": {
+    "coordinates": [
+      34.75,
+      57.128
+    ],
+    "magnitude": 3.8
+  },
+  "NGC 884": {
+    "coordinates": [
+      35.596,
+      57.125
+    ],
+    "magnitude": 3.8
+  },
+  "M81": {
+    "coordinates": [
+      148.8996,
+      69.0667
+    ],
+    "magnitude": 6.8
+  },
+  "M82": {
+    "coordinates": [
+      148.9496,
+      69.6833
+    ],
+    "magnitude": 8.4
+  },
+  "M65": {
+    "coordinates": [
+      169.725,
+      13.0833
+    ],
+    "magnitude": 9.3
+  },
+  "M66": {
+    "coordinates": [
+      170.0501,
+      12.9833
+    ],
+    "magnitude": 9
+  },
+  "M8": {
+    "coordinates": [
+      -89.05,
+      -24.3833
+    ],
+    "magnitude": 5.8
+  },
+  "M11": {
+    "coordinates": [
+      -77.225,
+      -6.2667
+    ],
+    "magnitude": 5.8
+  },
+  "M13": {
+    "coordinates": [
+      -109.575,
+      36.4667
+    ],
+    "magnitude": 5.9
+  },
+  "M27": {
+    "coordinates": [
+      -60.1001,
+      22.7167
+    ],
+    "magnitude": 8.1
+  },
+  "M31": {
+    "coordinates": [
+      10.6751,
+      41.2667
+    ],
+    "magnitude": 3.4
+  },
+  "M57": {
+    "coordinates": [
+      -76.6001,
+      33.0333
+    ],
+    "magnitude": 9
+  }
+}

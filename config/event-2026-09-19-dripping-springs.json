@@ -1,0 +1,42 @@
+{
+  "event_title": "Dripping Springs Star Party",
+  "organization": {
+    "name": "Austin Astronomical Society",
+    "website": "https://austinastro.org"
+  },
+  "date": "2026-09-19",
+  "time": "21:00",
+  "timezone": "America/Chicago",
+  "location": {
+    "name": "Dripping Springs, Texas",
+    "latitude": 30.1873402,
+    "longitude": -98.087601,
+    "elevation_m": 354
+  },
+  "telescope": {
+    "aperture_inches": "6-8",
+    "sky": "moderately light-polluted"
+  },
+  "target_candidates": ["M8", "M11", "M13", "M27", "M31", "M57"],
+  "target_selection": {
+    "count": 4,
+    "manual_overrides": ["M13", "M11", "M27", "M31"],
+    "evaluation_hour_offsets": [0, 1, 2],
+    "preferred_groups": ["globular cluster", "open cluster", "nebula", "galaxy"],
+    "minimum_altitude_degrees": 20
+  },
+  "sky_map": {
+    "star_magnitude_limit": 5.0,
+    "show_constellation_lines": true,
+    "show_constellation_boundaries": false,
+    "apply_precession": true,
+    "apply_refraction": true
+  },
+  "resources": {
+    "beginner_telescope_guide": "https://www.nytimes.com/wirecutter/reviews/best-telescopes-for-beginners/"
+  },
+  "print": {
+    "paper": "US Letter",
+    "duplex": "flip on long edge"
+  }
+}

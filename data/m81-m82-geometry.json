@@ -1,0 +1,11 @@
+{
+  "source": "de Blok et al. (2018), Table 2, optical coordinates and position angles",
+  "source_url": "https://arxiv.org/pdf/1808.02840",
+  "position_angle_convention": "degrees east of north, modulo 180",
+  "display_rotation_degrees": 23,
+  "pixels_per_degree": 440,
+  "members": [
+    {"id": "M81", "ra_degrees": 148.8883333333, "dec_degrees": 69.0652777778, "position_angle_degrees": 157},
+    {"id": "M82", "ra_degrees": 148.9695833333, "dec_degrees": 69.6794444444, "position_angle_degrees": 65}
+  ]
+}

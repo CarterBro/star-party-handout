@@ -1,0 +1,67 @@
+{
+  "M42": {"common_name":"Orion Nebula","type":"Diffuse nebula","selection_group":"nebula","distance_light_years":1500,"beginner_suitability":5,"eyepiece_note":"A pale fan of gas around the four Trapezium stars."},
+  "M38": {"common_name":"Starfish Cluster","type":"Open cluster","selection_group":"open cluster","distance_light_years":4200,"star_count":1000,"beginner_suitability":4.5,"eyepiece_note":"A loose cross-shaped scattering of stars."},
+  "M35": {"common_name":"Shoe Buckle Cluster","type":"Open cluster","selection_group":"open cluster","distance_light_years":2800,"star_count":500,"beginner_suitability":4.8,"eyepiece_note":"Curving chains of stars across a broad field."},
+  "M44": {"common_name":"Beehive Cluster","type":"Open cluster","selection_group":"open cluster","distance_light_years":600,"star_count":1000,"beginner_suitability":4.8,"eyepiece_note":"Use low power; the cluster may exceed one field."},
+  "M67": {"common_name":"M67 Open Cluster","type":"Open cluster","selection_group":"open cluster","distance_light_years":2700,"star_count":500,"beginner_suitability":4.2,"eyepiece_note":"A rich, irregular gathering of faint stars."},
+  "M3": {"common_name":"M3 Globular Cluster","type":"Globular cluster","selection_group":"globular cluster","distance_light_years":34000,"star_count":500000,"beginner_suitability":4.6,"eyepiece_note":"A bright round haze with a few grainy outer stars."},
+  "M5": {"common_name":"M5 Globular Cluster","type":"Globular cluster","selection_group":"globular cluster","distance_light_years":25000,"star_count":100000,"beginner_suitability":4.7,"eyepiece_note":"A concentrated glow with scattered resolved edge stars."},
+  "M15": {"common_name":"Great Pegasus Cluster","type":"Globular cluster","selection_group":"globular cluster","distance_light_years":34000,"star_count":100000,"beginner_suitability":4.4,"eyepiece_note":"A compact ball with a very concentrated core."},
+  "M104": {"common_name":"Sombrero Galaxy","type":"Galaxy","selection_group":"galaxy","distance_light_years":28000000,"beginner_suitability":3.8,"eyepiece_note":"A small elongated glow; the dust lane can be subtle."},
+  "NGC2392": {"common_name":"Clown Face Nebula","type":"Planetary nebula","selection_group":"nebula","distance_light_years":5000,"beginner_suitability":4.2,"catalog_id":"NGC 2392","eyepiece_note":"A tiny round glow around a central star; use higher power."},
+  "NGC3242": {"common_name":"Ghost of Jupiter","type":"Planetary nebula","selection_group":"nebula","distance_light_years":3000,"beginner_suitability":4.4,"catalog_id":"NGC 3242","eyepiece_note":"A small bright oval disk; fine rings are difficult."},
+  "NGC7662": {"common_name":"Blue Snowball Nebula","type":"Planetary nebula","selection_group":"nebula","distance_light_years":2500,"beginner_suitability":4.4,"catalog_id":"NGC 7662","eyepiece_note":"A tiny bright disk; expect subtle gray detail."},
+  "NGC869/884": {"common_name":"Double Cluster","type":"Open cluster pair","selection_group":"open cluster","distance_light_years":7500,"star_count":10000,"catalog_members":["NGC 869","NGC 884"],"beginner_suitability":5,"eyepiece_note":"Two dense stellar gatherings; use a wide field."},
+  "M81/M82": {"common_name":"Bode's / Cigar Galaxies","type":"Galaxy pair","selection_group":"galaxy","distance_light_years":12000000,"catalog_members":["M81","M82"],"beginner_suitability":4.3,"eyepiece_note":"One oval glow and one narrow streak; use a wide field."},
+  "M65/M66": {"common_name":"Leo Galaxy Pair","type":"Galaxy pair","selection_group":"galaxy","distance_light_years":35000000,"catalog_members":["M65","M66"],"beginner_suitability":3.8,"eyepiece_note":"Two faint elongated patches; transparency helps."},
+  "M8": {
+    "common_name": "Lagoon Nebula",
+    "type": "Diffuse nebula",
+    "selection_group": "nebula",
+    "distance_light_years": 4100,
+    "beginner_suitability": 4.2,
+    "eyepiece_note": "A broad, uneven glow around a loose star field."
+  },
+  "M11": {
+    "common_name": "Wild Duck Cluster",
+    "type": "Open cluster",
+    "selection_group": "open cluster",
+    "distance_light_years": 6200,
+    "star_count": 2900,
+    "beginner_suitability": 4.8,
+    "eyepiece_note": "A dense spray of faint stars with a brighter point near the edge."
+  },
+  "M13": {
+    "common_name": "Great Hercules Cluster",
+    "type": "Globular cluster",
+    "selection_group": "globular cluster",
+    "distance_light_years": 22200,
+    "star_count": 300000,
+    "beginner_suitability": 4.7,
+    "eyepiece_note": "A grainy ball; edge stars resolve before the bright core."
+  },
+  "M27": {
+    "common_name": "Dumbbell Nebula",
+    "type": "Planetary nebula",
+    "selection_group": "nebula",
+    "distance_light_years": 1360,
+    "beginner_suitability": 4.9,
+    "eyepiece_note": "A soft bow-tie or apple-core shape, helped by a nebula filter."
+  },
+  "M31": {
+    "common_name": "Andromeda Galaxy",
+    "type": "Galaxy",
+    "selection_group": "galaxy",
+    "distance_light_years": 2500000,
+    "beginner_suitability": 4.1,
+    "eyepiece_note": "Expect a pale elongated haze and bright core, not spiral arms."
+  },
+  "M57": {
+    "common_name": "Ring Nebula",
+    "type": "Planetary nebula",
+    "selection_group": "nebula",
+    "distance_light_years": 2300,
+    "beginner_suitability": 4.4,
+    "eyepiece_note": "A tiny smoke ring; use moderate power and averted vision."
+  }
+}

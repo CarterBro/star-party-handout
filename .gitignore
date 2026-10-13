@@ -1,0 +1,12 @@
+node_modules/
+# Editor temporary files
+*.swp
+*.swo
+tmp/
+cache/
+.DS_Store
+__pycache__/
+.venv/
+output/
+# Reference downloads are not licensed project assets.
+assets/sketch-sources/

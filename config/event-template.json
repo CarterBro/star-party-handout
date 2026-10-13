@@ -1,0 +1,18 @@
+{
+  "event_title": "Star Party",
+  "time": "21:00",
+  "target_selection": {
+    "count": 4,
+    "manual_overrides": [],
+    "evaluation_hour_offsets": [0, 1, 2],
+    "preferred_groups": ["globular cluster", "open cluster", "nebula", "galaxy"],
+    "minimum_altitude_degrees": 20
+  },
+  "sky_map": {
+    "star_magnitude_limit": 5.0,
+    "show_constellation_lines": true,
+    "show_constellation_boundaries": false,
+    "apply_precession": true,
+    "apply_refraction": true
+  }
+}

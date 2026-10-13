@@ -1,0 +1,153 @@
+{
+  "generator_version": 1,
+  "artwork_policy": "Original deterministic sketches; no network downloads.",
+  "assets": {
+    "M8": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M8-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M8-eyepiece.png",
+      "source_sha256": "4db644647f5f14c80c0866cbe0f1ffaccdaea52197f0abd6a5580bc8bf6d4afe",
+      "eyepiece_sha256": "d3254a4efca1c71429c97ab173f93ec60103b9119d2f7a49d3c03109d1b3d104"
+    },
+    "M11": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M11-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M11-eyepiece.png",
+      "source_sha256": "911189ec766d00cb42a1f5f6455b9c172dcc38616eb9c743565e6fc256743df2",
+      "eyepiece_sha256": "882c4bb73b7eae6e844f697119ec14b8a61c8664339c4171bca5cbaed471fb3b"
+    },
+    "M13": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M13-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M13-eyepiece.png",
+      "source_sha256": "3d74cef362f34eda5cbb1303b755240c1dd2c8c7e96e7d8f679b303115d88d87",
+      "eyepiece_sha256": "ba401dc07c58df158e785e0f4f77073311fd39c308f4084fde92ca68000dff60"
+    },
+    "M27": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M27-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M27-eyepiece.png",
+      "source_sha256": "6f072f5a58972f4f26d10caea173bbf72163c8eaa80d430916d9735cb79d4ea3",
+      "eyepiece_sha256": "588b4cb8270a0ec3e10968b4c21774b97000e4947cdc11b96e901c0d634da6a7"
+    },
+    "M31": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M31-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M31-eyepiece.png",
+      "source_sha256": "e4528e4dbc3eec2cb9ebdd603c316625a393a316356ec226057e0cccbf364863",
+      "eyepiece_sha256": "e55215dd415518a6ff33e22b8bec6d1269310294b7c56ed5645d84aabf1a23ae"
+    },
+    "M57": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M57-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M57-eyepiece.png",
+      "source_sha256": "c5e78dc7b77ff9b1b7b82c9b9c12d8cd8946e42f295b3a50897c1a85953baf1f",
+      "eyepiece_sha256": "21a76600cab20aeb9cc68f345132883ab89718182756a5a7227b69cace407449"
+    },
+    "M42": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M42-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M42-eyepiece.png",
+      "source_sha256": "d0ce08629d8559ad9c5c1e1d632bb62c00ff6f2be2a4879881ee965dfd5f8a97",
+      "eyepiece_sha256": "8785cf270bfcaac8d6c7ceb6d3b10917abf240f954d442f9293e23d901e4d539"
+    },
+    "M38": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M38-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M38-eyepiece.png",
+      "source_sha256": "c18cd3e422125a1166ecddc2820cf0375541e16bc18b60fa89fef0d859328306",
+      "eyepiece_sha256": "7c3e4779a698a1d7c2072441399fc4be4b00c486d7bc527149c818cd994782c8"
+    },
+    "M35": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M35-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M35-eyepiece.png",
+      "source_sha256": "16c1d8a6ca4ca53f78dc69a9c9045489af37731792df9aa59a7b467c38fda8ec",
+      "eyepiece_sha256": "202a54c6fef03b2f4377112823931d8ce8ddacb9dad475bb772260289576f57a"
+    },
+    "M44": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M44-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M44-eyepiece.png",
+      "source_sha256": "d1e3455305488041dde090c9ef07b35ab289b46fe61ad8dda7402eb376a0dfeb",
+      "eyepiece_sha256": "35617edd83d6de0c7696c698b0acdefcf8838a5e5fb8e5f3951673f20bbad5ae"
+    },
+    "M67": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M67-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M67-eyepiece.png",
+      "source_sha256": "b18e68d083abdaf1bc3a9d52d9df5d43ef382a452e2d5cdb76f56e244b6f4d8c",
+      "eyepiece_sha256": "70b36baa02484bbe72c5a04ccc9409c6e69c309601029a2779292c9c748706f1"
+    },
+    "M3": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M3-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M3-eyepiece.png",
+      "source_sha256": "c28692fd088b7cb15aba0eb66fd677691db6767a7fb390a0426c9471aad5b5d0",
+      "eyepiece_sha256": "b69d6c83b44c1a3d430d43edb62b3491f6389a8adf19267f1a5a3960d4303a76"
+    },
+    "M5": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M5-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M5-eyepiece.png",
+      "source_sha256": "7b454d8262526ab1e97d6ebc5ed1db13a60354e9216d8b18bffe21a975746f16",
+      "eyepiece_sha256": "3e3baa648ba7d89e98aa0dce5060fffaa7b7203eb0349b3ca897dc43f9b38fe3"
+    },
+    "M15": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M15-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M15-eyepiece.png",
+      "source_sha256": "4305d8c46f3a831e2c4388524933f72871411f142b1c333d56f597f07b469acf",
+      "eyepiece_sha256": "29b3c782c3ab27466b3e7a1aadb2e6c44ec8e542fa424789c56e3e00931e3aeb"
+    },
+    "M104": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M104-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M104-eyepiece.png",
+      "source_sha256": "57c5d34520257e511c29d7e3b22e178c51af9826535a24974f9033e7e8a2fb09",
+      "eyepiece_sha256": "adeb23ee704e614a2ab2f43115e9deb8ac089e46a5ca6117df639d5967d2aaf0"
+    },
+    "NGC2392": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/NGC2392-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/NGC2392-eyepiece.png",
+      "source_sha256": "663252ff38a3066aee69c2a49af1ad5ae2a5b9da15180d02ec2440f0423c716a",
+      "eyepiece_sha256": "858f3492152a6a7083c0137f957c393309b65101fab8e1a28fe2ffaade1e1168"
+    },
+    "NGC3242": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/NGC3242-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/NGC3242-eyepiece.png",
+      "source_sha256": "e68da8ce8be5bdfe2ada9c4346c3c55e3fda3407219a91b558841f9f4a0e3da8",
+      "eyepiece_sha256": "177a9d6c13a60104b2b2dca1e4e612adcaf2a84dc3b290b432baa89ff3537568"
+    },
+    "NGC7662": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/NGC7662-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/NGC7662-eyepiece.png",
+      "source_sha256": "e379c032c60394fb409eaea37267acc5afea9b533efe5b919824fd61c8e80839",
+      "eyepiece_sha256": "8b9727f2d06d7a1bd92f596354e95d53f0ad42478f921b157b1a52d692a98171"
+    },
+    "NGC869/884": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/NGC869-884-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/NGC869-884-eyepiece.png",
+      "source_sha256": "068652f0880d5b4a2b4dd17388238a1526e8d23f0d0fc327d36a534041b5d8fa",
+      "eyepiece_sha256": "1dc06e1df0bcfed6d713acfddbf814844bdb37cb32f58d757cb23c2a73a6811a"
+    },
+    "M81/M82": {
+      "asset_version": 3,
+      "source": "assets/generated/sketches/source/M81-M82-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M81-M82-eyepiece.png",
+      "source_sha256": "615a926c80b4bff08f465bbc68b74e1c69c41a97018144a086aaee8257e4a7b0",
+      "eyepiece_sha256": "ff256d29a9e6a645f98134cbdc476517a6673792fae84ce24780b5307ba32f8d"
+    },
+    "M65/M66": {
+      "asset_version": 1,
+      "source": "assets/generated/sketches/source/M65-M66-paper.png",
+      "eyepiece": "assets/generated/sketches/eyepiece/M65-M66-eyepiece.png",
+      "source_sha256": "7619e0dc6f4176e428ce1cbe447e9084f311432444f01efc78c0a56e3ae54f88",
+      "eyepiece_sha256": "fb9cc320f55d73ef1006df29050a53c070a86e5c69fc233fa7ab44274597d0f5"
+    }
+  }
+}

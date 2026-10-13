@@ -1,0 +1,862 @@
+{
+  "event_utc": "2026-10-13T02:00:00.000Z",
+  "bodies": {
+    "Sun": {
+      "ra_of_date_degrees": 198.23806917951126,
+      "dec_of_date_degrees": -7.728494501777506,
+      "altitude": -25.5474976387555,
+      "altitude_airless": -26.012364661071828,
+      "azimuth": 276.4037915540212,
+      "magnitude": -26.74665573911045,
+      "phase_fraction": 1
+    },
+    "Moon": {
+      "ra_of_date_degrees": 223.37637854270514,
+      "dec_of_date_degrees": -22.4858970659729,
+      "altitude": -10.980015034728453,
+      "altitude_airless": -11.549950782271665,
+      "azimuth": 250.56666887128551,
+      "magnitude": -6.647723196747656,
+      "phase_fraction": 0.062305528222759476
+    },
+    "Mercury": {
+      "ra_of_date_degrees": 221.364513894011,
+      "dec_of_date_degrees": -19.0762858781905,
+      "altitude": -11.02602949655801,
+      "altitude_airless": -11.5956333624043,
+      "azimuth": 254.54106912897396,
+      "magnitude": -0.07910435171953667,
+      "phase_fraction": 0.6013834354897775
+    },
+    "Venus": {
+      "ra_of_date_degrees": 211.6136129400195,
+      "dec_of_date_degrees": -20.848606663489015,
+      "altitude": -20.062348247693038,
+      "altitude_airless": -20.5667771950079,
+      "azimuth": 257.2231397843028,
+      "magnitude": -4.4083302778164155,
+      "phase_fraction": 0.04963947068487179
+    },
+    "Mars": {
+      "ra_of_date_degrees": 131.34092061535816,
+      "dec_of_date_degrees": 19.302480476867363,
+      "altitude": -40.008043070262715,
+      "altitude_airless": -40.368612657265544,
+      "azimuth": 3.184713162509683,
+      "magnitude": 1.0465952098156395,
+      "phase_fraction": 0.8997924108362786
+    },
+    "Jupiter": {
+      "ra_of_date_degrees": 144.22809724892153,
+      "dec_of_date_degrees": 14.885929474337441,
+      "altitude": -43.43051196627434,
+      "altitude_airless": -43.76639681852876,
+      "azimuth": 346.133166566529,
+      "magnitude": -1.9223504127303022,
+      "phase_fraction": 0.9935950263370505
+    },
+    "Saturn": {
+      "ra_of_date_degrees": 10.833476995079364,
+      "dec_of_date_degrees": 1.7122271227245687,
+      "altitude": 29.12330304411197,
+      "altitude_airless": 29.093125845806448,
+      "azimuth": 106.5670398971773,
+      "magnitude": 0.2445600448183587,
+      "phase_fraction": 0.9999232932042401
+    },
+    "Uranus": {
+      "ra_of_date_degrees": 63.37112282603939,
+      "dec_of_date_degrees": 21.029705225736976,
+      "altitude": -4.413642254970739,
+      "altitude_airless": -5.030938307385227,
+      "azimuth": 62.064894290435554,
+      "magnitude": 5.620880670240525,
+      "phase_fraction": 0.999664683515177
+    },
+    "Neptune": {
+      "ra_of_date_degrees": 2.892452446466189,
+      "dec_of_date_degrees": -0.29075972391913923,
+      "altitude": 34.37681099691573,
+      "altitude_airless": 34.352180226692866,
+      "azimuth": 113.95324327111979,
+      "magnitude": 7.813076411230393,
+      "phase_fraction": 0.9999753766943152
+    }
+  },
+  "twilight": {
+    "sunset_utc": "2026-10-13T00:03:05.726Z",
+    "civil_dusk_utc": "2026-10-13T00:27:13.218Z",
+    "nautical_dusk_utc": "2026-10-13T00:55:02.994Z",
+    "astronomical_dusk_utc": "2026-10-13T01:22:49.299Z",
+    "moonset_utc": "2026-10-13T01:04:36.165Z",
+    "next_moonrise_utc": "2026-10-13T15:28:43.657Z"
+  },
+  "selected_targets": [
+    "M15",
+    "NGC869/884",
+    "M27",
+    "M31"
+  ],
+  "targets": [
+    {
+      "id": "M31",
+      "altitude": 43.248779772638,
+      "azimuth": 59.82869597407912,
+      "score": 80.1,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 43.248779772638,
+          "azimuth": 59.82869597407912,
+          "ra_of_date_degrees": 11.043146975725392,
+          "dec_of_date_degrees": 41.41440098387154
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 54.50835229506403,
+          "azimuth": 59.94943230813816,
+          "ra_of_date_degrees": 11.043148937324133,
+          "dec_of_date_degrees": 41.41440137358145
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 65.55203964565419,
+          "azimuth": 55.4676549394844,
+          "ra_of_date_degrees": 11.043150922568714,
+          "dec_of_date_degrees": 41.41440177251059
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "id": "M15",
+      "altitude": 70.21917789543485,
+      "azimuth": 153.4338129290864,
+      "score": 76.6,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 70.21917789543485,
+          "azimuth": 153.4338129290864,
+          "ra_of_date_degrees": 322.82504098645586,
+          "dec_of_date_degrees": 12.284566419993853
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 71.14888296543114,
+          "azimuth": 198.82581930771656,
+          "ra_of_date_degrees": 322.82504228218,
+          "dec_of_date_degrees": 12.2845672893729
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 63.41499956778705,
+          "azimuth": 232.0176323943071,
+          "ra_of_date_degrees": 322.8250435985087,
+          "dec_of_date_degrees": 12.284568166457122
+        }
+      ],
+      "rank": 2
+    },
+    {
+      "id": "M27",
+      "altitude": 75.64789138823677,
+      "azimuth": 241.87796961110595,
+      "score": 75.1,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 75.64789138823677,
+          "azimuth": 241.87796961110595,
+          "ra_of_date_degrees": 300.19012003097896,
+          "dec_of_date_degrees": 22.789834795757702
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 63.2938591566605,
+          "azimuth": 260.68002630579093,
+          "ra_of_date_degrees": 300.19012122934896,
+          "dec_of_date_degrees": 22.78983569600499
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 50.360069475675544,
+          "azimuth": 269.9262246710914,
+          "ra_of_date_degrees": 300.19012244614635,
+          "dec_of_date_degrees": 22.789836601255498
+        }
+      ],
+      "rank": 3
+    },
+    {
+      "id": "NGC7662",
+      "altitude": 57.44812943756913,
+      "azimuth": 57.00532257590411,
+      "score": 73.7,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 57.44812943756913,
+          "azimuth": 57.00532257590411,
+          "ra_of_date_degrees": 351.79631988862343,
+          "dec_of_date_degrees": 42.68303934626153
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 67.95044345921025,
+          "azimuth": 49.46252531489043,
+          "ra_of_date_degrees": 351.79632172244044,
+          "dec_of_date_degrees": 42.68303998372091
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 76.10844076696849,
+          "azimuth": 24.555389769026487,
+          "ra_of_date_degrees": 351.7963235770769,
+          "dec_of_date_degrees": 42.683040630574915
+        }
+      ],
+      "rank": 4
+    },
+    {
+      "id": "NGC869/884",
+      "altitude": 29.439238659854347,
+      "azimuth": 37.919704923358424,
+      "score": 70.6,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 29.439238659854347,
+          "azimuth": 37.919704923358424,
+          "ra_of_date_degrees": 35.65006494382334,
+          "dec_of_date_degrees": 57.25002524071003
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 37.520468449116976,
+          "azimuth": 38.77392762147392,
+          "ra_of_date_degrees": 35.650067592224445,
+          "dec_of_date_degrees": 57.2500252545637
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 45.55902143322193,
+          "azimuth": 37.286301539886054,
+          "ra_of_date_degrees": 35.650070271353,
+          "dec_of_date_degrees": 57.25002527592688
+        }
+      ],
+      "rank": 5
+    },
+    {
+      "id": "M57",
+      "altitude": 64.18953577501048,
+      "azimuth": 284.139446287434,
+      "score": 64.9,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 64.18953577501048,
+          "azimuth": 284.139446287434,
+          "ra_of_date_degrees": 283.6498275986055,
+          "dec_of_date_degrees": 33.06618290785374
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 51.65085313526478,
+          "azimuth": 286.29427723956064,
+          "ra_of_date_degrees": 283.6498286097283,
+          "dec_of_date_degrees": 33.06618374238941
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 39.30270701981695,
+          "azimuth": 289.8027072534685,
+          "ra_of_date_degrees": 283.6498296367149,
+          "dec_of_date_degrees": 33.06618457943749
+        }
+      ],
+      "rank": 6
+    },
+    {
+      "id": "M11",
+      "altitude": 43.090919717608905,
+      "azimuth": 224.13164435286637,
+      "score": 63.4,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 43.090919717608905,
+          "azimuth": 224.13164435286637,
+          "ra_of_date_degrees": 283.1361994639823,
+          "dec_of_date_degrees": -6.23527256914839
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 32.95843692872284,
+          "azimuth": 238.14059864026785,
+          "ra_of_date_degrees": 283.13620074364076,
+          "dec_of_date_degrees": -6.235271737802778
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 21.35004611894219,
+          "azimuth": 248.7402675929879,
+          "ra_of_date_degrees": 283.1362020460954,
+          "dec_of_date_degrees": -6.235270904026572
+        }
+      ],
+      "rank": 7
+    },
+    {
+      "id": "M13",
+      "altitude": 37.763081192318786,
+      "azimuth": 294.6731786892192,
+      "score": 54.9,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 37.763081192318786,
+          "azimuth": 294.6731786892192,
+          "ra_of_date_degrees": 250.66628519214623,
+          "dec_of_date_degrees": 36.414631844858796
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 26.158250080477814,
+          "azimuth": 298.6410262724794,
+          "ra_of_date_degrees": 250.66628587950436,
+          "dec_of_date_degrees": 36.41463235319636
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 15.064086779348415,
+          "azimuth": 303.72239880621134,
+          "ra_of_date_degrees": 250.6662865820116,
+          "dec_of_date_degrees": 36.414632858679525
+        }
+      ],
+      "rank": 8
+    },
+    {
+      "id": "M8",
+      "altitude": 21.84701600737361,
+      "azimuth": 221.55681591788607,
+      "score": 45.3,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 21.84701600737361,
+          "azimuth": 221.55681591788607,
+          "ra_of_date_degrees": 271.36311493496885,
+          "dec_of_date_degrees": -24.382523456602936
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 12.404827430700465,
+          "azimuth": 231.91424609829036,
+          "ra_of_date_degrees": 271.3631164117776,
+          "dec_of_date_degrees": -24.382522716114803
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 1.8491864821075126,
+          "azimuth": 240.41070887106662,
+          "ra_of_date_degrees": 271.3631179146628,
+          "dec_of_date_degrees": -24.38252197511141
+        }
+      ],
+      "rank": 9
+    },
+    {
+      "id": "M42",
+      "altitude": -36.735369965204654,
+      "azimuth": 72.2890737452764,
+      "score": 15,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": -36.735369965204654,
+          "azimuth": 72.2890737452764,
+          "ra_of_date_degrees": 84.1809523131509,
+          "dec_of_date_degrees": -5.432126408600488
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": -23.99218800995368,
+          "azimuth": 81.65449791564753,
+          "ra_of_date_degrees": 84.18095349550208,
+          "dec_of_date_degrees": -5.432127078059911
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": -10.954430786535085,
+          "azimuth": 89.59152890290672,
+          "ra_of_date_degrees": 84.18095469875419,
+          "dec_of_date_degrees": -5.432127746850298
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "id": "M44",
+      "altitude": -39.36651435364607,
+      "azimuth": 4.279994967738905,
+      "score": 14.6,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": -39.36651435364607,
+          "azimuth": 4.279994967738905,
+          "ra_of_date_degrees": 130.41219588133401,
+          "dec_of_date_degrees": 19.88818718265908
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": -36.37983449012307,
+          "azimuth": 21.916445481790774,
+          "ra_of_date_degrees": 130.41219709949905,
+          "dec_of_date_degrees": 19.88818627896085
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": -29.908385603198354,
+          "azimuth": 37.06223195458583,
+          "ra_of_date_degrees": 130.41219834199666,
+          "dec_of_date_degrees": 19.888185368915195
+        }
+      ],
+      "rank": 11
+    },
+    {
+      "id": "M38",
+      "altitude": -7.603903022693373,
+      "azimuth": 39.711785327329345,
+      "score": 13,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": -7.603903022693373,
+          "azimuth": 39.711785327329345,
+          "ra_of_date_degrees": 82.62730255032193,
+          "dec_of_date_degrees": 35.85536154436647
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 1.1921728632086115,
+          "azimuth": 47.93285402709039,
+          "ra_of_date_degrees": 82.62730424458704,
+          "dec_of_date_degrees": 35.85536089169567
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 11.044224763030385,
+          "azimuth": 54.706687571658776,
+          "ra_of_date_degrees": 82.62730596744973,
+          "dec_of_date_degrees": 35.85536023994936
+        }
+      ],
+      "rank": 12
+    },
+    {
+      "id": "M5",
+      "altitude": 6.385963025259997,
+      "azimuth": 268.6489626519925,
+      "score": 12.6,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 6.385963025259997,
+          "azimuth": 268.6489626519925,
+          "ra_of_date_degrees": 229.99111848678444,
+          "dec_of_date_degrees": 1.9848271031961646
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": -6.113761449380476,
+          "azimuth": 276.2650609765057,
+          "ra_of_date_degrees": 229.99111969662783,
+          "dec_of_date_degrees": 1.9848273141036799
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": -18.978663280277615,
+          "azimuth": 284.42385471644036,
+          "ra_of_date_degrees": 229.99112092801158,
+          "dec_of_date_degrees": 1.9848275191583589
+        }
+      ],
+      "rank": 13
+    },
+    {
+      "id": "M35",
+      "altitude": -22.080703452528738,
+      "azimuth": 40.61173396251946,
+      "score": 11.3,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": -22.080703452528738,
+          "azimuth": 40.61173396251946,
+          "ra_of_date_degrees": 92.63782737209897,
+          "dec_of_date_degrees": 24.329186995460383
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": -12.670769062226427,
+          "azimuth": 51.15699403236327,
+          "ra_of_date_degrees": 92.63782884081621,
+          "dec_of_date_degrees": 24.329186243550893
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": -1.8829222114341349,
+          "azimuth": 59.79264302876966,
+          "ra_of_date_degrees": 92.63783033559321,
+          "dec_of_date_degrees": 24.329185490916252
+        }
+      ],
+      "rank": 14
+    },
+    {
+      "id": "M81/M82",
+      "altitude": 10.256106957180364,
+      "azimuth": 354.4561924007799,
+      "score": 11,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 10.256106957180364,
+          "azimuth": 354.4561924007799,
+          "ra_of_date_degrees": 149.47817874205987,
+          "dec_of_date_degrees": 69.24733880604218
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": 9.609583817811327,
+          "azimuth": 359.81112314105917,
+          "ra_of_date_degrees": 149.47817905026784,
+          "dec_of_date_degrees": 69.24733797196913
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": 10.171966118806552,
+          "azimuth": 5.175297572379252,
+          "ra_of_date_degrees": 149.47817939227878,
+          "dec_of_date_degrees": 69.24733712960803
+        }
+      ],
+      "rank": 15
+    },
+    {
+      "id": "M3",
+      "altitude": 0.6209776241662155,
+      "azimuth": 303.1163044938323,
+      "score": 7.3,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": 0.6209776241662155,
+          "azimuth": 303.1163044938323,
+          "ra_of_date_degrees": 205.8611830172357,
+          "dec_of_date_degrees": 28.24720250261437
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": -9.606333309858513,
+          "azimuth": 311.42259913383725,
+          "ra_of_date_degrees": 205.8611837793767,
+          "dec_of_date_degrees": 28.247202334981168
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": -18.634835871672948,
+          "azimuth": 321.5104916189783,
+          "ra_of_date_degrees": 205.8611845609605,
+          "dec_of_date_degrees": 28.247202158971184
+        }
+      ],
+      "rank": 16
+    },
+    {
+      "id": "M67",
+      "altitude": -47.70141763996148,
+      "azimuth": 1.38018896914271,
+      "score": 4.7,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": -47.70141763996148,
+          "azimuth": 1.38018896914271,
+          "ra_of_date_degrees": 132.96838039854367,
+          "dec_of_date_degrees": 11.716491687899877
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": -44.96212911415773,
+          "azimuth": 22.5346772679945,
+          "ra_of_date_degrees": 132.96838161783847,
+          "dec_of_date_degrees": 11.716490787838454
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": -38.11386462110724,
+          "azimuth": 40.14743776319506,
+          "ra_of_date_degrees": 132.96838286032397,
+          "dec_of_date_degrees": 11.716489881123437
+        }
+      ],
+      "rank": 17
+    },
+    {
+      "id": "M104",
+      "altitude": -34.363409974841844,
+      "azimuth": 276.75941274268865,
+      "score": 0,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": -34.363409974841844,
+          "azimuth": 276.75941274268865,
+          "ra_of_date_degrees": 190.35015947197485,
+          "dec_of_date_degrees": -11.764701353157669
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": -47.171047821767445,
+          "azimuth": 286.6858879710272,
+          "ra_of_date_degrees": 190.35016088164366,
+          "dec_of_date_degrees": -11.764701752728334
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": -59.14054310640708,
+          "azimuth": 301.4721221691661,
+          "ra_of_date_degrees": 190.35016231352324,
+          "dec_of_date_degrees": -11.764702161542901
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "id": "NGC2392",
+      "altitude": -34.55472535546896,
+      "azimuth": 24.37101823154922,
+      "score": 0,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": -34.55472535546896,
+          "azimuth": 24.37101823154922,
+          "ra_of_date_degrees": 112.6932291116126,
+          "dec_of_date_degrees": 20.856506813827224
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": -27.67224236274619,
+          "azimuth": 38.80447426334284,
+          "ra_of_date_degrees": 112.6932304344947,
+          "dec_of_date_degrees": 20.856505934318047
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": -18.460153744704982,
+          "azimuth": 50.46246649927802,
+          "ra_of_date_degrees": 112.69323178245338,
+          "dec_of_date_degrees": 20.85650505089508
+        }
+      ],
+      "rank": 19
+    },
+    {
+      "id": "NGC3242",
+      "altitude": -66.34191945780285,
+      "azimuth": 294.0636963650331,
+      "score": 0,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": -66.34191945780285,
+          "azimuth": 294.0636963650331,
+          "ra_of_date_degrees": 156.51616668275767,
+          "dec_of_date_degrees": -18.778868973144967
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": -76.52124548277513,
+          "azimuth": 327.42011074988733,
+          "ra_of_date_degrees": 156.51616807707092,
+          "dec_of_date_degrees": -18.77886975765495
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": -76.56152628811822,
+          "azimuth": 32.27133751401548,
+          "ra_of_date_degrees": 156.51616949199206,
+          "dec_of_date_degrees": -18.778870550947875
+        }
+      ],
+      "rank": 20
+    },
+    {
+      "id": "M65/M66",
+      "altitude": -34.06071173986686,
+      "azimuth": 315.53909633028866,
+      "score": 0,
+      "altitude_samples": [
+        {
+          "offset_hours": 0,
+          "utc": "2026-10-13T02:00:00.000Z",
+          "altitude": -34.06071173986686,
+          "azimuth": 315.53909633028866,
+          "ra_of_date_degrees": 170.239151439549,
+          "dec_of_date_degrees": 12.885975699410215
+        },
+        {
+          "offset_hours": 1,
+          "utc": "2026-10-13T03:00:00.000Z",
+          "altitude": -41.881320068311425,
+          "azimuth": 331.44984638593587,
+          "ra_of_date_degrees": 170.23915253672317,
+          "dec_of_date_degrees": 12.885975044699713
+        },
+        {
+          "offset_hours": 2,
+          "utc": "2026-10-13T04:00:00.000Z",
+          "altitude": -46.11328372551765,
+          "azimuth": 351.148951793392,
+          "ra_of_date_degrees": 170.23915365599623,
+          "dec_of_date_degrees": 12.885974380626864
+        }
+      ],
+      "rank": 21
+    }
+  ],
+  "star_sample": [
+    {
+      "id": "122",
+      "magnitude": 4.78,
+      "name": "",
+      "j2000": [
+        0.39879999999999427,
+        -77.0657
+      ],
+      "altitude": -20.425985229500995,
+      "azimuth": 169.81739242930055,
+      "ra_of_date_degrees": 0.7471867322777257,
+      "dec_of_date_degrees": -76.91572273338507
+    },
+    {
+      "id": "154",
+      "magnitude": 4.37,
+      "name": "",
+      "j2000": [
+        0.490099999999984,
+        -6.0141
+      ],
+      "altitude": 32.3898526355856,
+      "azimuth": 120.65578118546286,
+      "ra_of_date_degrees": 0.8352898733198799,
+      "dec_of_date_degrees": -5.864121741484072
+    },
+    {
+      "id": "301",
+      "magnitude": 4.55,
+      "name": "",
+      "j2000": [
+        0.9350000000000023,
+        -17.336
+      ],
+      "altitude": 24.236323144605436,
+      "azimuth": 129.593099446199,
+      "ra_of_date_degrees": 1.2799348129566397,
+      "dec_of_date_degrees": -17.186022253216112
+    },
+    {
+      "id": "355",
+      "magnitude": 4.99,
+      "name": "",
+      "j2000": [
+        1.1254999999999882,
+        -10.5095
+      ],
+      "altitude": 28.89246889958617,
+      "azimuth": 124.0134938883844,
+      "ra_of_date_degrees": 1.4704250032883124,
+      "dec_of_date_degrees": -10.359525236737685
+    },
+    {
+      "id": "443",
+      "magnitude": 4.61,
+      "name": "",
+      "j2000": [
+        1.3339000000000283,
+        -5.7076
+      ],
+      "altitude": 31.96318296046107,
+      "azimuth": 119.72869948293543,
+      "ra_of_date_degrees": 1.6788692756945238,
+      "dec_of_date_degrees": -5.557630400220917
+    }
+  ]
+}
